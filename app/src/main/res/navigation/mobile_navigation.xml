@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/home">
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.somniumapp.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/search"
+        android:name="com.example.somniumapp.Search"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.somniumapp.Settings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/faq"
+        android:name="com.example.somniumapp.Faq"
+        android:label="fragment_faq"
+        tools:layout="@layout/fragment_faq" />
+    <fragment
+        android:id="@+id/gameplay"
+        android:name="com.example.somniumapp.Gameplay"
+        android:label="fragment_gameplay"
+        tools:layout="@layout/fragment_gameplay" />
+    <fragment
+        android:id="@+id/donate"
+        android:name="com.example.somniumapp.Donate"
+        android:label="fragment_donate"
+        tools:layout="@layout/fragment_donate" />
+    <fragment
+        android:id="@+id/other"
+        android:name="com.example.somniumapp.Other"
+        android:label="fragment_other"
+        tools:layout="@layout/fragment_other" />
+    <fragment
+        android:id="@+id/economy"
+        android:name="com.example.somniumapp.Economy"
+        android:label="fragment_economy"
+        tools:layout="@layout/fragment_economy" />
+</navigation>

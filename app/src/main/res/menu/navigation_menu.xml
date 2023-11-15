@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+    <item
+        android:id="@+id/nav_faqFragment"
+        android:title="@string/FAQ" />
+    <item
+        android:id="@+id/nav_gameplayFragment"
+        android:title="@string/Gameplay" />
+    <item
+        android:id="@+id/nav_economyFragment"
+        android:title="@string/Economy" />
+    <item
+        android:id="@+id/nav_donateFragment"
+        android:title="@string/Donate" />
+    <item
+        android:id="@+id/nav_otherFragment"
+        android:title="@string/Other" />
+
+</menu>
