@@ -1,6 +1,5 @@
 package com.example.somniumapp
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         binding.navView.setNavigationItemSelectedListener(this)
         binding.bottomNavView.background = null
-        binding.bottomNavView.setOnItemReselectedListener{ item ->
+        binding.bottomNavView.setOnItemSelectedListener{ item ->
             when(item.itemId){
                 R.id.bottom_homeFragment -> replaceFragment(Home())
                 R.id.bottom_settingsFragment -> replaceFragment(Settings())
@@ -61,14 +60,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    @SuppressLint("MissingSuperCall")
+    /*@SuppressLint("MissingSuperCall") //Не понял за что отвечает
     override fun onBackPressed() {
         if(binding.drawerLayout.isDrawerOpen(GravityCompat.START)){
             binding.drawerLayout.closeDrawer(GravityCompat.START)
         }else{
             super.onBackPressedDispatcher.onBackPressed()
         }
-    }
+    }*/
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
