@@ -1,5 +1,6 @@
 package com.example.somniumapp
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        replaceFragment(Home())
         setSupportActionBar(binding.toolbar)
 
         val toggle = ActionBarDrawerToggle(this, binding.drawerLayout, binding.toolbar, R.string.app_name, R.string.app_name)
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.bottomNavView.setOnItemSelectedListener{ item ->
             when(item.itemId){
                 R.id.bottom_homeFragment -> replaceFragment(Home())
-                R.id.bottom_settingsFragment -> replaceFragment(Settings())
+                //R.id.bottom_settingsFragment -> replaceFragment(Settings())
                 R.id.bottom_searchFragment -> replaceFragment(Search())
             }
             true
@@ -45,8 +47,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout = binding.drawerLayout
         navView = binding.navView
         bottomView= binding.bottomNavView
-
-
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean{
         when(item.itemId){
@@ -60,14 +60,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    /*@SuppressLint("MissingSuperCall") //Не понял за что отвечает
+    @SuppressLint("MissingSuperCall") //Не понял за что отвечает
     override fun onBackPressed() {
         if(binding.drawerLayout.isDrawerOpen(GravityCompat.START)){
             binding.drawerLayout.closeDrawer(GravityCompat.START)
         }else{
             super.onBackPressedDispatcher.onBackPressed()
         }
-    }*/
+    }
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
