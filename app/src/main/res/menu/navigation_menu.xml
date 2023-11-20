@@ -3,20 +3,63 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn = "navigation_view">
-    <item
-        android:id="@+id/nav_faqFragment"
-        android:title="@string/FAQ" />
-    <item
-        android:id="@+id/nav_gameplayFragment"
-        android:title="@string/Gameplay" />
-    <item
-        android:id="@+id/nav_economyFragment"
-        android:title="@string/Economy" />
-    <item
-        android:id="@+id/nav_donateFragment"
-        android:title="@string/Donate" />
-    <item
-        android:id="@+id/nav_otherFragment"
-        android:title="@string/Other" />
+    <group
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <item
+            android:id="@+id/nav_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/home_icon"
+            android:title="@string/Home" />
+        <item
+            android:id="@+id/nav_articles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:title="Статьи">
+            <menu
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <item
+                    android:id="@+id/nav_faqFragment"
+                    android:title="@string/FAQ" />
+                <item
+                    android:id="@+id/nav_gameplayFragment"
+                    android:title="@string/Gameplay" />
+                <item
+                    android:id="@+id/nav_economyFragment"
+                    android:title="@string/Economy" />
+                <item
+                    android:id="@+id/nav_donateFragment"
+                    android:title="@string/Donate" />
+                <item
+                    android:id="@+id/nav_otherFragment"
+                    android:title="@string/Other" />
+            </menu>
+        </item>
+        <item
+            android:id="@+id/nav_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:title="@string/Other">
+            <menu
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <item
+                    android:id="@+id/nav_settingsActivity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/settings_icon"
+                    android:title="@string/Settings" />
+                <item
+                    android:id="@+id/nav_discordLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/ic_launcher_foreground"
+                    android:title="Дискорд" />
+            </menu>
+        </item>
+    </group>
 
 </menu>
