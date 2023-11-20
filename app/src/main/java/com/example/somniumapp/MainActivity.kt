@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var binding: ActivityMainBinding
     private lateinit var toolbar: Toolbar
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var bottomView: BottomNavigationView
     private lateinit var navView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,26 +33,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         binding.navView.setNavigationItemSelectedListener(this)
-        binding.bottomNavView.background = null
-
-        binding.bottomNavView.setOnItemSelectedListener{ item ->
-            when(item.itemId){
-                R.id.bottom_homeFragment -> replaceFragment(Home())
-                R.id.bottom_settingsFragment -> {
-                    val intent = Intent(this, SettingsActivity::class.java)
-                    startActivity(intent)
-                    item.setCheckable(false);
-                }
-                R.id.bottom_searchFragment -> replaceFragment(Search())
-            }
-            true
-        }
 
         toolbar = findViewById(R.id.toolbar)
 
         drawerLayout = binding.drawerLayout
         navView = binding.navView
-        bottomView= binding.bottomNavView
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean{
@@ -75,3 +59,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 }
 
+/*
+                R.id.bottom_settingsFragment -> {
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                    item.setCheckable(false)
+                }
+*/
