@@ -1,8 +1,10 @@
 package com.example.somniumapp
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -33,10 +35,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         binding.navView.setNavigationItemSelectedListener(this)
         binding.bottomNavView.background = null
+
         binding.bottomNavView.setOnItemSelectedListener{ item ->
             when(item.itemId){
                 R.id.bottom_homeFragment -> replaceFragment(Home())
-                //R.id.bottom_settingsFragment -> replaceFragment(Settings())
+                R.id.bottom_settingsFragment -> {
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                    item.setCheckable(false);
+                }
                 R.id.bottom_searchFragment -> replaceFragment(Search())
             }
             true
@@ -48,6 +55,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navView = binding.navView
         bottomView= binding.bottomNavView
     }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean{
         when(item.itemId){
             R.id.nav_faqFragment -> replaceFragment(Faq())
@@ -58,15 +66,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
-    }
-
-    @SuppressLint("MissingSuperCall") //Не понял за что отвечает
-    override fun onBackPressed() {
-        if(binding.drawerLayout.isDrawerOpen(GravityCompat.START)){
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
-        }else{
-            super.onBackPressedDispatcher.onBackPressed()
-        }
     }
 
     private fun replaceFragment(fragment: Fragment) {
