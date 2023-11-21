@@ -17,7 +17,7 @@
             android:id="@+id/nav_articles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:title="Статьи">
+            android:title="@string/Articles">
             <menu
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -33,9 +33,6 @@
                 <item
                     android:id="@+id/nav_donateFragment"
                     android:title="@string/Donate" />
-                <item
-                    android:id="@+id/nav_otherFragment"
-                    android:title="@string/Other" />
             </menu>
         </item>
         <item
@@ -47,17 +44,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <item
+                    android:id="@+id/nav_dynMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/map"
+                    android:title="@string/DynMap" />
+                <item
+                    android:id="@+id/nav_discordLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/discord"
+                    android:title="@string/Discord" />
+                <item
+                    android:id="@+id/nav_vk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/vk"
+                    android:title="@string/VK" />
+                <item
                     android:id="@+id/nav_settingsActivity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:icon="@drawable/settings_icon"
                     android:title="@string/Settings" />
-                <item
-                    android:id="@+id/nav_discordLink"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:icon="@drawable/ic_launcher_foreground"
-                    android:title="Дискорд" />
             </menu>
         </item>
     </group>

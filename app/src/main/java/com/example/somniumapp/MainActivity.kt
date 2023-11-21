@@ -2,6 +2,7 @@ package com.example.somniumapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -48,8 +49,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_gameplayFragment -> replaceFragment(Gameplay())
             R.id.nav_economyFragment -> replaceFragment(Economy())
             R.id.nav_donateFragment -> replaceFragment(Donate())
-            R.id.nav_otherFragment -> replaceFragment(Other())
 
+
+            R.id.nav_dynMap -> openLinkInBrowser("https://map.scmc.dev/")
+            R.id.nav_discordLink -> openLinkInBrowser("https://discord.com/invite/VeV2MKDtnT")
+            R.id.nav_vk -> openLinkInBrowser("https://vk.com/somniumcraft")
             R.id.nav_settingsActivity -> {
                 val intent = Intent(this, SettingsActivity::class.java)
                 startActivity(intent)
@@ -64,6 +68,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container_view, fragment)
             .commit()
+    }
+
+    private fun openLinkInBrowser(url: String) {
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(browserIntent)
     }
 }
 
