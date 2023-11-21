@@ -42,11 +42,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean{
         when(item.itemId){
+            R.id.nav_home -> replaceFragment(Home())
+
             R.id.nav_faqFragment -> replaceFragment(Faq())
             R.id.nav_gameplayFragment -> replaceFragment(Gameplay())
             R.id.nav_economyFragment -> replaceFragment(Economy())
             R.id.nav_donateFragment -> replaceFragment(Donate())
             R.id.nav_otherFragment -> replaceFragment(Other())
+
+            R.id.nav_settingsActivity -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+                item.setCheckable(false)
+            }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
