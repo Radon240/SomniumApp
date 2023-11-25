@@ -1,19 +1,19 @@
 package com.example.somniumapp
 
-import android.annotation.SuppressLint
+import ThemeHelper.setThemeOfApp
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import com.example.somniumapp.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -21,9 +21,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var toolbar: Toolbar
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        setTheme(ThemeHelper.setThemeOfApp(sharedPreferences))
+
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(Home())
@@ -50,14 +55,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_economyFragment -> replaceFragment(Economy())
             R.id.nav_donateFragment -> replaceFragment(Donate())
 
-
             R.id.nav_dynMap -> openLinkInBrowser("https://map.scmc.dev/")
             R.id.nav_discordLink -> openLinkInBrowser("https://discord.com/invite/VeV2MKDtnT")
             R.id.nav_vk -> openLinkInBrowser("https://vk.com/somniumcraft")
             R.id.nav_settingsActivity -> {
                 val intent = Intent(this, SettingsActivity::class.java)
                 startActivity(intent)
-                item.setCheckable(false)
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
@@ -74,12 +77,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(browserIntent)
     }
-}
 
-/*
-                R.id.bottom_settingsFragment -> {
-                    val intent = Intent(this, SettingsActivity::class.java)
-                    startActivity(intent)
-                    item.setCheckable(false)
-                }
-*/
+//    private fun setThemeOfApp(){
+//        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
+//        if (sharedPreferences.getString("theme_preference", "light").equals("light")){
+//            setTheme(R.style.AppTheme)
+//        }
+//        else if (sharedPreferences.getString("theme_preference", "light").equals("dark")){
+//            setTheme(R.style.AppTheme_Night)
+//        }
+//        else if (sharedPreferences.getString("theme_preference", "light").equals("green")){
+//            setTheme(R.style.AppTheme_Holo_green_dark)
+//        }
+//        else if (sharedPreferences.getString("theme_preference", "light").equals("red")){
+//            setTheme(R.style.AppTheme_Red)
+//        }
+//        else if (sharedPreferences.getString("theme_preference", "light").equals("purple")){
+//            setTheme(R.style.AppTheme_Purple)
+//        }
+//    }
+}

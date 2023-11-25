@@ -1,29 +1,23 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <PreferenceCategory app:title="@string/Settings">
-
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
-
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Внешний вид">
         <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
-        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
-
+            android:defaultValue="0"
+            android:key="theme_preference"
+            android:summary="%s"
+            android:title="Выберите тему"
+            app:entries="@array/theme_options"
+            app:entryValues="@array/theme_values"
+            app:icon="@drawable/pallet" />
     </PreferenceCategory>
-
+    <PreferenceCategory android:title="Профиль">
+        <EditTextPreference
+            android:key="nickname_preference"
+            android:title="Никнейм"
+            android:summary="Ваш текущий никнейм: %s"
+            android:dialogTitle="Введите новый никнейм"
+            android:defaultValue="По умолчанию"
+            android:inputType="text"
+            android:singleLine="true" />
+    </PreferenceCategory>
 </PreferenceScreen>
