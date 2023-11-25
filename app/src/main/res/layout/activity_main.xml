@@ -26,7 +26,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#569FC6"
+            android:background="?colorPrimary"
             android:elevation="4dp">
 
         </androidx.appcompat.widget.Toolbar>
@@ -49,7 +49,4 @@
         tools:layout_editor_absoluteY="0dp">
 
     </com.google.android.material.navigation.NavigationView>
-
-    <!-- Боковое меню (NavigationView) -->
-
 </androidx.drawerlayout.widget.DrawerLayout>
