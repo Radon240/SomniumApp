@@ -1,9 +1,31 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.SomniumApp" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimaryDark">@color/main_color</item>
         <item name="android:navigationBarColor">@color/black</item>
     </style>
 
-    <style name="Theme.SomniumApp" parent="Base.Theme.SomniumApp" />
+    <style name="AppTheme.Night" parent="AppTheme" >
+        <item name="colorPrimary">@android:color/darker_gray</item>
+        <item name="colorPrimaryDark">@android:color/darker_gray</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="AppTheme.Holo_green_dark" parent="AppTheme" >
+        <item name="colorPrimary">@android:color/holo_green_dark</item>
+        <item name="colorPrimaryDark">@android:color/holo_green_dark</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="AppTheme_Red" parent="AppTheme" >
+        <item name="colorPrimary">@android:color/holo_red_dark</item>
+        <item name="colorPrimaryDark">@android:color/holo_red_dark</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="AppTheme_Purple" parent="AppTheme" >
+        <item name="colorPrimary">@android:color/holo_purple</item>
+        <item name="colorPrimaryDark">@android:color/holo_purple</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
 </resources>
