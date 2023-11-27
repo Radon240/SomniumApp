@@ -8,7 +8,7 @@ object ThemeHelper {
             "dark" -> R.style.AppTheme_Night
             "green" -> R.style.AppTheme_Holo_green_dark
             "red" -> R.style.AppTheme_Red
-            "purple" -> R.style.AppTheme_Purple
+            "purple" -> R.style.AppTheme_Violet
             else -> R.style.AppTheme
         }
     }
