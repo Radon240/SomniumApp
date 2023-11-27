@@ -1,6 +1,5 @@
 package com.example.somniumapp
 
-import ThemeHelper.setThemeOfApp
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
@@ -46,6 +45,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navView = binding.navView
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        recreate()
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean{
         when(item.itemId){
             R.id.nav_home -> replaceFragment(Home())
@@ -77,23 +81,4 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(browserIntent)
     }
-
-//    private fun setThemeOfApp(){
-//        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
-//        if (sharedPreferences.getString("theme_preference", "light").equals("light")){
-//            setTheme(R.style.AppTheme)
-//        }
-//        else if (sharedPreferences.getString("theme_preference", "light").equals("dark")){
-//            setTheme(R.style.AppTheme_Night)
-//        }
-//        else if (sharedPreferences.getString("theme_preference", "light").equals("green")){
-//            setTheme(R.style.AppTheme_Holo_green_dark)
-//        }
-//        else if (sharedPreferences.getString("theme_preference", "light").equals("red")){
-//            setTheme(R.style.AppTheme_Red)
-//        }
-//        else if (sharedPreferences.getString("theme_preference", "light").equals("purple")){
-//            setTheme(R.style.AppTheme_Purple)
-//        }
-//    }
 }
