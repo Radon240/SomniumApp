@@ -1,16 +1,21 @@
 package com.example.somniumapp
 
-import ThemeHelper.setThemeOfApp
-import android.app.Activity
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 
 class SettingsActivity : AppCompatActivity() {
-    private lateinit var sharedPrefs : SharedPreferences
+    private lateinit var sharedPrefs: SharedPreferences
+
+    private val sharedPrefsListener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, key ->
+        if (key == "theme_preference") {
+            recreate()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this)
@@ -30,8 +35,12 @@ class SettingsActivity : AppCompatActivity() {
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this)
-        //sharedPrefs.registerOnSharedPreferenceChangeListener(preferenceChangeListener)
+        sharedPrefs.registerOnSharedPreferenceChangeListener(sharedPrefsListener)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        sharedPrefs.unregisterOnSharedPreferenceChangeListener(sharedPrefsListener)
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {

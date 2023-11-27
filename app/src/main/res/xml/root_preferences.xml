@@ -12,12 +12,13 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="Профиль">
         <EditTextPreference
-            android:key="nickname_preference"
-            android:title="Никнейм"
-            android:summary="Ваш текущий никнейм: %s"
-            android:dialogTitle="Введите новый никнейм"
             android:defaultValue="По умолчанию"
+            android:dialogTitle="Введите новый никнейм"
             android:inputType="text"
-            android:singleLine="true" />
+            android:key="nickname_preference"
+            android:singleLine="true"
+            android:summary="Ваш текущий никнейм: %s"
+            android:title="Никнейм"
+            app:icon="@drawable/card" />
     </PreferenceCategory>
 </PreferenceScreen>
