@@ -29,7 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?colorPrimary"
-            android:elevation="4dp">
+            android:elevation="4dp"
+            android:fitsSystemWindows="true">
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -50,4 +51,5 @@
         tools:layout_editor_absoluteY="0dp">
 
     </com.google.android.material.navigation.NavigationView>
+
 </androidx.drawerlayout.widget.DrawerLayout>
