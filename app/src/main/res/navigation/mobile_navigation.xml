@@ -28,7 +28,7 @@
         android:id="@+id/gameplay"
         android:name="com.example.somniumapp.Gameplay"
         android:label="fragment_gameplay"
-        tools:layout="@layout/fragment_gameplay" />
+        tools:layout="@layout/fragment_articles_by_category" />
     <fragment
         android:id="@+id/donate"
         android:name="com.example.somniumapp.Donate"
