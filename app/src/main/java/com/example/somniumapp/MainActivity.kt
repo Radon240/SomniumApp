@@ -1,6 +1,6 @@
 package com.example.somniumapp
 
-import Gameplay
+import ArticlesByCategoryFragment
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
@@ -52,19 +52,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean{
+
         when(item.itemId){
             R.id.nav_home -> replaceFragment(Home())
 
-            R.id.nav_faqFragment -> replaceFragment(Faq())
-            R.id.nav_gameplayFragment -> replaceFragment(Gameplay())
-            R.id.nav_economyFragment -> replaceFragment(Economy())
-            R.id.nav_donateFragment -> replaceFragment(Donate())
+            R.id.nav_faqFragment -> replaceFragment(ArticlesByCategoryFragment("FAQ"))
+            R.id.nav_gameplayFragment -> replaceFragment(ArticlesByCategoryFragment("Gameplay"))
+            R.id.nav_economyFragment -> replaceFragment(ArticlesByCategoryFragment("Economy"))
+            R.id.nav_donateFragment -> replaceFragment(ArticlesByCategoryFragment("Donate"))
 
             R.id.nav_dynMap -> openLinkInBrowser("https://map.scmc.dev/")
             R.id.nav_discordLink -> openLinkInBrowser("https://discord.com/invite/VeV2MKDtnT")
             R.id.nav_vk -> openLinkInBrowser("https://vk.com/somniumcraft")
             R.id.nav_settingsActivity -> {
-                val intent = Intent(this, SettingsActivity::class.java)
+                intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.web_view -> {
+                intent = Intent(this, ArticleRenderer::class.java)
                 startActivity(intent)
             }
         }

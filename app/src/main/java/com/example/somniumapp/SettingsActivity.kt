@@ -2,7 +2,6 @@ package com.example.somniumapp
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.preference.PreferenceFragmentCompat
@@ -22,9 +21,10 @@ class SettingsActivity : AppCompatActivity() {
         setTheme(ThemeHelper.setThemeOfApp(sharedPrefs))
 
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.settings_activity)
 
-        val toolbar: Toolbar = findViewById(R.id.settings_toolbar)
+        val toolbar: Toolbar = findViewById(R.id.toolbar2)
         setSupportActionBar(toolbar)
 
         if (savedInstanceState == null) {
