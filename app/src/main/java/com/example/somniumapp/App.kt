@@ -1,5 +1,8 @@
 package com.example.somniumapp
 import android.app.Application
+import com.example.somniumapp.di.appModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
 class App : Application() {
@@ -7,7 +10,9 @@ class App : Application() {
         super.onCreate()
 
         startKoin{
-
+            androidLogger()
+            androidContext(this@App)
+            modules(appModule)
         }
     }
 }
