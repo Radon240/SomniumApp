@@ -3,18 +3,26 @@ package com.example.somniumapp.features.article
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.somniumapp.ArticleRenderer
 import com.example.somniumapp.R
 import com.example.somniumapp.databinding.ArticleItemBinding
 import com.example.somniumapp.features.article.model.GetArticleResponse
 import com.example.somniumapp.features.article.model.GetArticlesByCategoryResponse
 
-class ArticleAdapter(private val articles: List<GetArticlesByCategoryResponse>) : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() {
+class ArticleAdapter(private val listener: ClickListener, private val articles: GetArticlesByCategoryResponse) : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() {
+    interface ClickListener{
+        fun onClick(articles: GetArticlesByCategoryResponse, position: Int)
+    }
+
     class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ArticleItemBinding.bind(itemView)
-        fun bind(article: GetArticlesByCategoryResponse) = with(binding){
-            articleTitle.text = article.title
+        fun bind( listener: ClickListener, articles: GetArticlesByCategoryResponse, position: Int) = with(binding){
+            articleTitle.text = articles.data[position].title
+
+            itemView.setOnClickListener{
+                listener.onClick(articles, adapterPosition)
+            }
         }
     }
 
@@ -24,10 +32,10 @@ class ArticleAdapter(private val articles: List<GetArticlesByCategoryResponse>) 
     }
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
-        holder.bind(articles[position])
+        holder.bind(listener, articles, position)
     }
 
     override fun getItemCount(): Int {
-        return articles.size
+        return articles.data.size
     }
 }

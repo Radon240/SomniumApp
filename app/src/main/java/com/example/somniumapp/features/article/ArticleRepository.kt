@@ -6,8 +6,6 @@ import com.example.somniumapp.features.article.model.CreateArticleResponse
 import com.example.somniumapp.features.article.model.GetArticlesByCategoryResponse
 
 interface ArticleRepository {
-    fun getArticle(title:String): GetArticleResponse?
-    fun getArticles(category: String): List<GetArticlesByCategoryResponse>?
-    fun deleteArticle(title:String): DeleteArticleResponse?
-    fun createArticle(): CreateArticleResponse?
+    suspend fun getArticle(id: String): GetArticleResponse
+    suspend fun getArticles(category: String): GetArticlesByCategoryResponse
 }

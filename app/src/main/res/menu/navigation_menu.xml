@@ -67,11 +67,6 @@
                     android:layout_height="wrap_content"
                     android:icon="@drawable/settings_icon"
                     android:title="@string/Settings" />
-                <item
-                    android:id="@+id/web_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:title="WebView" />
             </menu>
         </item>
     </group>

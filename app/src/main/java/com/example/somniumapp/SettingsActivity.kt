@@ -21,11 +21,12 @@ class SettingsActivity : AppCompatActivity() {
         setTheme(ThemeHelper.setThemeOfApp(sharedPrefs))
 
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.settings_activity)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar2)
         setSupportActionBar(toolbar)
+        supportActionBar?.title = "Настройки"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (savedInstanceState == null) {
             supportFragmentManager
@@ -33,7 +34,6 @@ class SettingsActivity : AppCompatActivity() {
                 .replace(R.id.settings, SettingsFragment())
                 .commit()
         }
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         sharedPrefs.registerOnSharedPreferenceChangeListener(sharedPrefsListener)
     }

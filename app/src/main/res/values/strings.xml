@@ -13,6 +13,7 @@
     <string name="Economy">Экономика (в разработке)</string>
     <string name="Donate">Донат</string>
     <string name="Other">Другое</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_settings">SettingsActivity</string>

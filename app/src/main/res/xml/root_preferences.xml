@@ -17,8 +17,8 @@
             android:inputType="text"
             android:key="nickname_preference"
             android:singleLine="true"
-            android:summary="Ваш текущий никнейм: %s"
             android:title="Никнейм"
-            app:icon="@drawable/card" />
+            app:useSimpleSummaryProvider="true"
+            android:icon="@drawable/card"/>
     </PreferenceCategory>
 </PreferenceScreen>
