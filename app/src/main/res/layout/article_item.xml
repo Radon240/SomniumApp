@@ -8,11 +8,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/articleCardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="406dp"
+        android:layout_height="58dp"
         android:background="@color/white"
         android:elevation="4dp"
-        app:cardBackgroundColor="?colorPrimary"
+        app:cardBackgroundColor="?colorSecondary"
         app:cardCornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

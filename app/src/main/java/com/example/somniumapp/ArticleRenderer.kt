@@ -1,5 +1,6 @@
 package com.example.somniumapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,6 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.preference.PreferenceManager
 import com.example.somniumapp.features.article.ArticleRepository
-import com.example.somniumapp.features.article.model.GetArticleResponse
 import kotlinx.coroutines.runBlocking
 import org.intellij.markdown.flavours.commonmark.CommonMarkFlavourDescriptor
 import org.intellij.markdown.html.HtmlGenerator
@@ -21,6 +21,7 @@ class ArticleRenderer() : AppCompatActivity() {
     private lateinit var webView: WebView
     private val articleRepository: ArticleRepository by inject()
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         setTheme(ThemeHelper.setThemeOfApp(sharedPreferences))
@@ -34,14 +35,17 @@ class ArticleRenderer() : AppCompatActivity() {
 
         val articleTitle = intent.getStringExtra("articleTitle")
         val articleId = intent.getStringExtra("articleId")
-        val articleCategory = intent.getStringExtra("articleCategory")
+        val articleCategoryName = intent.getStringExtra("articleCategoryName")
+        val articleCategoryId = intent.getStringExtra("articleCategoryId")
 
         supportActionBar?.title = articleTitle
 
             onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 intent = Intent(this@ArticleRenderer, MainActivity::class.java)
-                intent.putExtra("category", articleCategory.toString())
+                intent.putExtra("category", articleCategoryName)
+                intent.putExtra("category", articleCategoryId)
+
                 startActivity(intent)
                 finish()
             }

@@ -12,16 +12,16 @@
 
     <string-array name="theme_options">
         <item>Светлая</item>
-        <item>Тёмная</item>
         <item>Зеленая</item>
         <item>Красная</item>
         <item>Розовая</item>
+        <item>Нейтральная</item>
     </string-array>
     <string-array name="theme_values">
         <item>light</item>
-        <item>dark</item>
         <item>green</item>
         <item>red</item>
         <item>purple</item>
+        <item>grey</item>
     </string-array>
 </resources>

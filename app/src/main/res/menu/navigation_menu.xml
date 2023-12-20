@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn = "navigation_view">
     <group
@@ -14,26 +15,13 @@
             android:icon="@drawable/home_icon"
             android:title="@string/Home" />
         <item
-            android:id="@+id/nav_articles"
+            android:id="@+id/nav_categories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:title="@string/Articles">
+            android:title="@string/Categories">
             <menu
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <item
-                    android:id="@+id/nav_faqFragment"
-                    android:title="@string/FAQ" />
-                <item
-                    android:id="@+id/nav_gameplayFragment"
-                    android:title="@string/Gameplay" />
-                <item
-                    android:id="@+id/nav_economyFragment"
-                    android:title="@string/Economy" />
-                <item
-                    android:id="@+id/nav_donateFragment"
-                    android:title="@string/Donate" />
-            </menu>
+                android:layout_height="match_parent" />
         </item>
         <item
             android:id="@+id/nav_other"

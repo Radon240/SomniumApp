@@ -35,6 +35,8 @@ class SettingsActivity : AppCompatActivity() {
                 .commit()
         }
 
+
+
         sharedPrefs.registerOnSharedPreferenceChangeListener(sharedPrefsListener)
     }
 

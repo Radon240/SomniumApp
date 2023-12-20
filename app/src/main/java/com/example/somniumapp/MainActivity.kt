@@ -6,21 +6,15 @@ import android.content.SharedPreferences
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.ContextMenu
-import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
-import androidx.core.view.get
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import com.example.somniumapp.databinding.ActivityMainBinding
-import com.example.somniumapp.features.article.ArticleRepository
 import com.example.somniumapp.features.category.CategoryRepository
-import com.example.somniumapp.features.category.model.GetCategoriesResponse
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.runBlocking
 import org.koin.android.ext.android.inject
@@ -68,7 +62,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         }
 
-        val category = intent.getStringExtra("category")
+        val category = intent.getStringExtra("articleCategoryId")
         if (category == null) {
             replaceFragment(Home())
             supportActionBar?.title = "Главная"
@@ -87,7 +81,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when(item.itemId){
             R.id.nav_home -> replaceFragment(Home())
 
-
             R.id.nav_dynMap -> openLinkInBrowser("https://map.scmc.dev/")
             R.id.nav_discordLink -> openLinkInBrowser("https://discord.com/invite/VeV2MKDtnT")
             R.id.nav_vk -> openLinkInBrowser("https://vk.com/somniumcraft")
@@ -96,9 +89,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
         }
+
         if(item.contentDescription != null){
             replaceFragment(ArticlesByCategoryFragment(item.contentDescription.toString()))
+            supportActionBar?.title = item.title
         }
+
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }

@@ -21,7 +21,7 @@ import kotlinx.coroutines.withContext
 import org.koin.android.ext.android.inject
 import org.koin.core.definition.indexKey
 
-class ArticlesByCategoryFragment(private val category: String = "") : Fragment() , ArticleAdapter.ClickListener{
+class ArticlesByCategoryFragment(private val category: String) : Fragment() , ArticleAdapter.ClickListener{
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var customAdapter: ArticleAdapter
@@ -58,7 +58,7 @@ class ArticlesByCategoryFragment(private val category: String = "") : Fragment()
         val intent = Intent(requireContext(), ArticleRenderer::class.java)
         intent.putExtra("articleId", articles.data[position].id)
         intent.putExtra("articleTitle", articles.data[position].title)
-        intent.putExtra("articleCategory", category)
+        intent.putExtra("articleCategoryId", category)
         startActivity(intent)
     }
 }
