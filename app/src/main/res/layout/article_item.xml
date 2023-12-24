@@ -29,8 +29,8 @@
 
             <TextView
                 android:id="@+id/articleTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="353dp"
+                android:layout_height="28dp"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textSize="20sp"

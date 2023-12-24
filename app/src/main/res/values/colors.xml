@@ -14,8 +14,8 @@
     <color name="red">#A80000</color>
     <color name="secondary_red">@android:color/holo_red_dark</color>
 
-    <color name="purple">#824E9C</color>
-    <color name="secondary_purple">@android:color/holo_purple</color>
+    <color name="pink">#FF4DF6</color>
+    <color name="secondary_pink">#FF00D5</color>
 
     <color name="grey">@android:color/darker_gray</color>
     <color name="secondary_grey">#BDBDBD</color>

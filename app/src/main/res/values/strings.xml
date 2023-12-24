@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SomniumApp</string>
+    <string name="app_name">SomniumWiki</string>
     <string name="Discord">Дискорд</string>
     <string name="DynMap">Карта сервера</string>
     <string name="VK">Группа Вконтакте</string>
